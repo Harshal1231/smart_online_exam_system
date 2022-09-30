@@ -1,0 +1,179 @@
+<html>
+    <head>
+      <title>Admin Panel</title>
+        <link rel="shortcut icon" href="../img/college logo.png" type="image/jpeg" />
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./../boostrap/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./../boostrap/headerfooter.css">
+        <link rel="stylesheet" type="text/css" href="./../boostrap/css/admin.css">
+        <script src="./../boostrap/bootstrap.min.js"></script>
+
+        <script src="./../boostrap/a.js"></script>
+        <script src="./../boostrap/b.js"></script>
+        <script src="./../boostrap/c.js"></script>
+        <script src="./../boostrap/angular.min.js"></script>
+        <script src="./../js/admin/exam_completed_student.js"></script>
+    </head>
+    <body ng-app="exam_completed_student" ng-controller="exam_completed_studentCtrl">  
+        <div class="container-fluid outer-container" >
+        <!-- Header Block-->
+            <div class="container-fluid header">
+           <div class="row">
+               <div class="col-md-3  text-white text-center">
+                    <img src="../img/college logo.png" class="img-fluid logo" alt="college logo"><br>
+                    <b>DTE Code :</b>5008<br>
+                    <b>MSBTE Code :</b>0018/1567
+                </div>
+                <div class="col-md-7 text-white">
+                    <h1 class="text-center">Government Polytechnic, Jalgaon<br>शासकीय तंत्रनिकेतन, जळगांव<br></h1>
+                    <h5 class="text-center">(An Institute of Government Of Maharashtra)<br>Since 1960</h5>
+                </div>
+            </div>   
+        </div>
+         <!--Menu Bar Block-->
+         <nav class="navbar navbar-expand-md navbar-light bg-light">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <a class="nav-link" href="./home.html">Home <span class="sr-only">(current)</span></a>
+              </li>                
+              <li class="nav-item">
+                <a class="nav-link" href="./add_student.html">Add Student</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./allow_login.html">Allow Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./re_schedule_exam.html">Re-Schedule Exam</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">Upload</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="./upload_student.php">Student Details</a>
+                  <a class="dropdown-item" href="./upload_question.php">Question</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="./exam_config.html">Exam Config</a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link" href="./../php/admin/logout.php">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+
+<!--Registration in Block-->
+
+<div class="row outer-table">
+    <div class="col-md-1"></div>
+    <div class="col-md-10">
+        <div class="container_fluid table-responsive text-center" id="student_list">
+            <h3>Exam completed Students</h3>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Sr. No</th>
+                    <th>Student Id</th>
+                    <th>Student Name</th>
+                    <th>Student Contact</th>
+                    <th>College Name</th>
+                    <th>Out Of Marks</th>
+                    <th>Obtain Marks</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="student in student_data">
+                    <td>{{student[0]}}</td>
+                    <td ng-click="getPaper(student)"><a href="">{{student.s_id}}</a></td>
+                    <td>{{student.s_name}}</td>
+                    <td>{{student.s_mo_no}}</td>
+                    <td>{{student.s_clg_name}}</td>
+                    <td>{{student.out_of_marks}}</td>
+                    <td>{{student.obtain_marks}}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="container_fluid table-responsive text-center" style="display: none;" id="paper">
+          <h3>Student Paper</h3>
+
+          <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>Student Id</th>
+                <td>{{student_marks.s_id}}</td>
+                <th>Student Name</th>
+                <td>{{student_marks.s_name}}</td>
+            </tr>
+            <tr>
+              <th>Student Contact</th>
+              <td>{{student_marks.s_mo_no}}</td>
+              <th>College Name</th>
+              <td>{{student_marks.s_clg_name}}</td>
+            </tr>
+            <tr>
+              <th>Out Of Marks</th>
+              <td>{{student_marks.out_of_marks}}</td>
+              <th>Obtain Marks</th>
+              <td>{{student_marks.obtain_marks}}</td>
+            </tr>
+            </thead>
+        </table>
+
+          <table class="table table-bordered">
+              <thead>
+              <tr>
+                  <th>Sr. No</th>
+                  <th>Question</th>
+                  <th>Seleted Answer</th>
+                  <th>Correct Answer</th>
+                  <th>True/False</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr ng-repeat="paper in student_paper">
+                  <td>{{paper[0]}}</td>
+                  <td >{{paper.q_description}}</td>
+                  <td>{{paper.c_ans}}</td>
+                  <td>{{paper.ans}}</td>
+                  <td>{{paper.c_ans==paper.ans}}</td>
+              </tr>
+              </tbody>
+          </table>
+          
+      </div>
+    </div>
+    <div class="col-md-1"></div>
+</div>
+<div class="row">
+  <div class="col-md-2"></div>
+  <div class="col-md-9"><input type="button" class="btn btn-danger text-white" value="Print" style="width: 90%;margin: 5%;" ng-click="goToPrint()"></div>
+  <div class="col-md-1"></div>
+</div>
+        <!--Footer Block-->
+            <div class="container-fluid footer">
+                <div class="row">
+                    <div class="col-md-12 text-center text-white">
+                        <h5>Guided By: H .K . Nemade</h5>
+                    </div>
+                </div>
+                <div class="container-fluid  text-center text-white">
+                  <h5>Developed By</h5>
+                </div>
+                <div class="row text-center text-white">
+                  <div class="col-md-4">1. Umesh Chaudhari</div>
+                  <div class="col-md-4">2. Bhavesh Patil</div>
+                  <div class="col-md-4">3. Harshal Koli</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

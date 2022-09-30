@@ -1,0 +1,52 @@
+/*student Welcome */
+
+.profile-outer{
+    padding:5% 0px;
+}
+.profile-outer table tr td{
+    padding: 5px;
+}
+.profile-head{
+    background-color: orange;
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 5px;
+}
+.btn-start{
+width: 60%;
+margin: 5% 20%;
+}
+
+/*exam_question*/
+.head-name{
+    background-color: rgb(255, 187, 0);
+    color: white;
+    border-radius: 5px;
+    border: 2px solid white;
+    font-family: 'Times New Roman';
+}
+
+.question-outer{
+    margin: 2% 4%;
+    max-width: 92%;
+    border-radius: 5px;
+}
+.question-outer div{
+    padding: 10px;
+}
+.q-d{
+font-size: 25px;
+background-color: rgb(245, 171, 33);
+color: white;
+border-radius: 5px;
+font-family: 'Times New Roman', Times, serif;
+}
+.a-d{
+font-size: 20px;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+.btn-sub-next{
+margin: 2%;
+}

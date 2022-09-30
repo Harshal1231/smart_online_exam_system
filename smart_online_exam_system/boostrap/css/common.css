@@ -1,0 +1,83 @@
+/*
+Log in page
+*/
+.outer-login{
+  border: 1px solid orange;
+  padding: 0px; 
+  margin: 5% 2%; 
+  border-radius: 10px;
+  max-width: 96%;
+}
+
+.outer-login-img{
+    border-radius: 10px; 
+    background-color: orange; 
+}
+.outer-login-img img{
+    width: 50%;
+    height: 175px;
+    margin: 0px 25%;
+}
+.outer-login-form{
+    padding: 5% 2%;
+
+    border-radius: 10px; 
+}
+.btn-login{
+    width: 80%;
+    background-color: green;
+    margin:0px 10% ;
+    color: white;
+}
+.link-btn a{
+    text-decoration: none;
+    color: gray;
+}
+.link-btn a:hover {
+    color: rgb(63, 61, 61);
+    font-size: 17px;
+   
+}
+
+/*Registration page*/
+.reg-sub-btn{
+    padding: 0px 15%;
+}
+.reg-sub-btn input{
+    background-color: green;
+    color: white;
+}
+
+/*Hostel info*/
+.hostelinfo-outer-table{
+    border: 2px solid orange;
+    border-radius: 5px;
+    margin: 5% 0px;
+}
+
+
+/* Contact Us*/
+.box-head-contactus{
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    background-color: orange;
+}
+
+.box-outer-contactus{
+    border: 2px solid orange;
+    border-radius: 5px;
+    min-height: 350px;
+    padding:0px;
+    margin-bottom: 4%;
+
+}
+.contact-outer-contactus{
+    border: 2px solid orange;
+    border-radius: 5px;
+    min-height: 150px;
+    padding:0px;
+}
+.contain-contactus{
+    padding: 2%;
+}

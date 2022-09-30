@@ -1,0 +1,130 @@
+<html>
+    <head>
+      <title>Student login</title>
+        <link rel="shortcut icon" href="../img/college logo.png" type="image/jpeg" />
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="./../boostrap/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="./../boostrap/headerfooter.css">
+        <link rel="stylesheet" type="text/css" href="./../boostrap/css/student.css">
+        <script src="./../boostrap/bootstrap.min.js"></script>
+
+        <script src="./../boostrap/a.js"></script>
+        <script src="./../boostrap/b.js"></script>
+        <script src="./../boostrap/c.js"></script>
+        <script src="./../boostrap/angular.min.js"></script>
+        <script src="./../js/student/main.js"></script>
+    </head>
+    <body ng-app="Question"  ng-controller="getQCtrl" id="idForJS">  
+        <div class="container-fluid outer-container" >
+        <!-- Header Block-->
+            <div class="container-fluid header">
+           <div class="row">
+               <div class="col-md-3  text-white text-center">
+                    <img src="../img/college logo.png" class="img-fluid logo" alt="college logo"><br>
+                    <b>DTE Code :</b>5008<br>
+                    <b>MSBTE Code :</b>0018/1567
+                </div>
+                <div class="col-md-7 text-white">
+                    <h1 class="text-center">Government Polytechnic, Jalgaon<br>शासकीय तंत्रनिकेतन, जळगांव<br></h1>
+                    <h5 class="text-center">(An Institute of Government Of Maharashtra)<br>Since 1960</h5>
+                </div>
+            </div>   
+        </div>
+        
+        <!-- Main Question-->
+        <div class="container-fluid">
+            <div class="row head-name">
+                    <div class="col-md-9"><h3>Name: {{student_name.s_name}}</h3></div>
+                    <div class="col-md-3"><h3 >Time :<span id="countdown"> 00:00</span></h3></div>
+            </div>
+        </div>
+        <!--Question-->
+        <div class="shadow question-outer" id="question">
+                <div class="container-fluid q-d">
+                 Q {{countq+1}}. {{quetion.q_description}}
+                </div>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 a-d"><input type="radio" name="ans" ng-model="ans" value="{{quetion.a}}">  {{quetion.a}}</div>
+                        <div class="col-md-6 a-d"><input type="radio" name="ans" ng-model="ans" value="{{quetion.b}}">  {{quetion.b}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 a-d"><input type="radio" name="ans" ng-model="ans" value="{{quetion.c}}">  {{quetion.c}}</div>
+                        <div class="col-md-6 a-d"><input type="radio" name="ans" ng-model="ans" value="{{quetion.d}}">  {{quetion.d}}</div>
+                    </div>
+                </div>
+                <center><input type="button" value="Submit & Next" class="btn btn-success btn-sub-next" ng-click="nextq()"></center>
+        </div>
+
+        <!-- Alll Question-->
+        <div class="container-fluid profile-outer" id="all_question" style="display: none;">
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-10">
+                    <div class="container-fluid profile-head">
+                        Question Summary
+                    </div>
+                    <div class="container-fluid shadow table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>Q. No. </th>
+                                    <th>Question</th>
+                                    <th>Answer</th>
+                                    <th>Change</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="question in temp_question">
+                                    <td>{{question.quetion_no+1}}</td>
+                                    <td > {{question.q_description}}</td>
+                                    <td>{{question.selected_ans}}</td>
+                                    <td><input type="button" value="Change"  class=" btn btn-danger" ng-click="change(question)"></td>
+                                </tr>
+                            </tbody>
+                      </table>
+                      <center><input type="button" value="Submit Exam" class="btn btn-success btn-sub-next" ng-click="submitResult()"></center>                          
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+            </div>
+        </div>
+
+        <!--Update Question-->
+        <div class="shadow question-outer" id="update_question" style="display: none;">
+            <div class="container-fluid q-d">
+             Q {{quetionUpdate.quetion_no+1}}. {{quetionUpdate.q_description}}
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 a-d"><input type="radio" name="ans1" ng-model="ans1" value="{{quetionUpdate.a}}">  {{quetionUpdate.a}}</div>
+                    <div class="col-md-6 a-d"><input type="radio" name="ans1" ng-model="ans1" value="{{quetionUpdate.b}}">  {{quetionUpdate.b}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 a-d"><input type="radio" name="ans1" ng-model="ans1" value="{{quetionUpdate.c}}">  {{quetionUpdate.c}}</div>
+                    <div class="col-md-6 a-d"><input type="radio" name="ans1" ng-model="ans1" value="{{quetionUpdate.d}}">  {{quetionUpdate.d}}</div>
+                </div>
+            </div>
+            <center><input type="button" value="Submit & Next" class="btn btn-success btn-sub-next" ng-click="updateQueation(quetionUpdate)"></center>
+       </div>
+
+        <!--Footer Block-->
+            <div class="container-fluid footer">
+                <div class="row">
+                    <div class="col-md-12 text-center text-white">
+                        <h5>Guided By: H .K . Nemade</h5>
+                    </div>
+                </div>
+                <div class="container-fluid  text-center text-white">
+                  <h5>Developed By</h5>
+                </div>
+                <div class="row text-center text-white">
+                        <div class="col-md-6">1. Umesh Chaudhari</div>
+                        <div class="col-md-6">2. Bhavesh Patil</div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

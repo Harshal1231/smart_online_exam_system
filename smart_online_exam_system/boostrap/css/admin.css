@@ -1,0 +1,42 @@
+/* addStudent*/
+
+.outer-registration{
+    border: 1px solid orange;
+    padding: 0px; 
+    margin: 5% 2%; 
+    border-radius: 10px;
+    max-width: 96%;
+  }
+  
+.outer-registration-img{
+    border-radius: 10px; 
+    background-color: orange; 
+}
+.outer-registration-img img{
+    width: 50%;
+    height: 175px;
+    margin: 0px 25%;
+}
+.outer-registration-form{
+    padding: 5% 2%;
+
+    border-radius: 10px; 
+}
+.btn-login{
+    width: 80%;
+    background-color: green;
+    margin:0px 10% ;
+    color: white;
+}
+.reg-sub-btn{
+    padding: 0px 15%;
+}
+.reg-sub-btn input{
+    background-color: green;
+    color: white;
+}
+
+/*Total Student*/
+.outer-table{
+margin-top: 2%;
+}
